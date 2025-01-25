@@ -1,10 +1,11 @@
 .timeline-editor {
 
   &-action {
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: #2f3134;
+    /* tailwind: absolute left-0 top-0 bg-[#2f3134] */
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // background-color: #2f3134;
 
     & &-left-stretch,
     & &-right-stretch {
@@ -28,6 +29,7 @@
 
     & &-left-stretch {
       left: 0;
+
       &::after {
         left: 0;
         content: "";
@@ -38,6 +40,7 @@
 
     & &-right-stretch {
       right: 0;
+
       &::after {
         right: 0;
         content: "";

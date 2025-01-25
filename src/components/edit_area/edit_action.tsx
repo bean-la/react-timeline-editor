@@ -232,7 +232,7 @@ export const EditAction: FC<EditActionProps> = ({
             onContextMenuAction(e, { row, action, time: time });
           }
         }}
-        className={prefix((classNames || []).join(' '))}
+        className={`absolute left-0 top-0 bg-slate-800 ${prefix((classNames || []).join(' '))}`}
         style={{ height: rowHeight }}
       >
         {getActionRender && getActionRender(nowAction, nowRow)}

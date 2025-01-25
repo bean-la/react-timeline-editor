@@ -1,4 +1,4 @@
-import { parserPixelToTime } from '@/utils/deal_data';
+import { parserPixelToTime } from '../../utils/deal_data';
 import React, { FC, useEffect, useRef } from 'react';
 import { AutoSizer, Grid, GridCellRenderer, OnScrollParams } from 'react-virtualized';
 import { CommonProp } from '../../interface/common_prop';
@@ -25,11 +25,11 @@ export const TimeArea: FC<TimeAreaProps> = ({ setCursor, maxScaleCount, hideCurs
   const cellRenderer: GridCellRenderer = ({ columnIndex, key, style }) => {
     const isShowScale = showUnit ? columnIndex % scaleSplitCount === 0 : true;
     const classNames = ['time-unit'];
-    if (isShowScale) classNames.push('time-unit-big');
+    if (isShowScale) classNames.push('time-unit-big !h-[8px]');
     const item = (showUnit ? columnIndex / scaleSplitCount : columnIndex) * scale;
     return (
-      <div key={key} style={style} className={prefix(...classNames)}>
-        {isShowScale && <div className={prefix('time-unit-scale')}>{getScaleRender ? getScaleRender(item) : item}</div>}
+      <div key={key} style={style} className={`border-r border-white/20 relative box-content !h-1 bottom-0 top-auto  ${prefix(...classNames)}`}>
+        {isShowScale && <div className={`absolute right-0 top-0 transform-translate-50-100 ${prefix('time-unit-scale')}`}>{getScaleRender ? getScaleRender(item) : item}</div>}
       </div>
     );
   };
@@ -47,9 +47,9 @@ export const TimeArea: FC<TimeAreaProps> = ({ setCursor, maxScaleCount, hideCurs
         return showUnit ? scaleWidth / scaleSplitCount : scaleWidth;
     }
   };
-  const estColumnWidth=getColumnWidth({index:1});
+  const estColumnWidth = getColumnWidth({ index: 1 });
   return (
-    <div className={prefix('time-area')}>
+    <div className={`${prefix('time-area')} relative h-10 flex-none`}>
       <AutoSizer>
         {({ width, height }) => {
           return (

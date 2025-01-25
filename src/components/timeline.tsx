@@ -168,7 +168,7 @@ export const Timeline = React.forwardRef<TimelineState, TimelineEditor>((props, 
   }, []);
 
   return (
-    <div ref={domRef} style={style} className={`${PREFIX} ${disableDrag ? PREFIX + '-disable' : ''}`}>
+    <div ref={domRef} style={style} className={`min-h-[80vh] relative flex flex-col overflow-hidden select-none ${PREFIX} ${disableDrag ? PREFIX + '-disable' : ''}`}>
       <ScrollSync ref={scrollSync}>
         {({ scrollLeft, scrollTop, onScroll }) => (
           <>

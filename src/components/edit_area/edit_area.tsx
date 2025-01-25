@@ -153,7 +153,7 @@ export const EditArea = React.forwardRef<EditAreaState, EditAreaProps>((props, r
   }, [editorData]);
 
   return (
-    <div ref={editAreaRef} className={prefix('edit-area')}>
+    <div ref={editAreaRef} className={`${prefix('edit-area')} flex-1 mt-2.5 overflow-hidden relative`}>
       <AutoSizer>
         {({ width, height }) => {
           // 获取全部高度
@@ -178,6 +178,7 @@ export const EditArea = React.forwardRef<EditAreaState, EditAreaProps>((props, r
 
           return (
             <Grid
+              className="outline-none !overflow-overlay"
               columnCount={1}
               rowCount={heights.length}
               ref={gridRef}

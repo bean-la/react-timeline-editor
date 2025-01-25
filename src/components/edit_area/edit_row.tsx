@@ -33,7 +33,7 @@ export const EditRow: FC<EditRowProps> = (props) => {
     scaleWidth,
   } = props;
 
-  const classNames = ['edit-row'];
+  const classNames = ['bg-repeat-none bg-repeat flex flex-row box-border '];
   if (rowData?.selected) classNames.push('edit-row-selected');
 
   const handleTime = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
