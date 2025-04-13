@@ -7,7 +7,7 @@ var reactVirtualized = require('react-virtualized');
 var frameworkUtils = require('framework-utils');
 var interact = require('interactjs');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var interact__default = /*#__PURE__*/_interopDefaultLegacy(interact);
@@ -71,8 +71,8 @@ function _inherits(t, e) {
 }
 function _isNativeReflectConstruct() {
   try {
-    var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-  } catch (t) {}
+    var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () { }));
+  } catch (t) { }
   return (_isNativeReflectConstruct = function () {
     return !!t;
   })();
@@ -222,7 +222,7 @@ var Emitter = /*#__PURE__*/function () {
     value: function off(name, handler) {
       if (this.events[name]) {
         var listener = this.events[name];
-        if (!handler) this.events[name] = [];else {
+        if (!handler) this.events[name] = []; else {
           var index = listener.indexOf(handler);
           if (index !== -1) listener.splice(index, 1);
         }
@@ -295,9 +295,9 @@ var TimelineEngine = /*#__PURE__*/function (_Emitter) {
   return _createClass(TimelineEngine, [{
     key: "isPlaying",
     get: /** 是否正在播放 */
-    function get() {
-      return this._playState === 'playing';
-    }
+      function get() {
+        return this._playState === 'playing';
+      }
     /** 是否暂停中 */
   }, {
     key: "isPaused",
@@ -381,7 +381,7 @@ var TimelineEngine = /*#__PURE__*/function (_Emitter) {
       if (isTick) this.trigger('setTimeByTick', {
         time: time,
         engine: this
-      });else this.trigger('afterSetTime', {
+      }); else this.trigger('afterSetTime', {
         time: time,
         engine: this
       });
@@ -711,13 +711,13 @@ var ConsoleLogger = /*#__PURE__*/function () {
   return _createClass(ConsoleLogger, [{
     key: "setPrefix",
     value:
-    /**
-     * set logger prefix
-     * @param prefix
-     */
-    function setPrefix(prefix) {
-      this.prefix = prefix;
-    }
+      /**
+       * set logger prefix
+       * @param prefix
+       */
+      function setPrefix(prefix) {
+        this.prefix = prefix;
+      }
     /**
      * enable logger with optional log level
      * @param level
@@ -1360,7 +1360,7 @@ var RowDnd = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, r
       }
       deltaX.current = deltaX.current % distance;
       // 控制bounds
-      if (curLeft < bounds.left) curLeft = bounds.left;else if (curLeft + preWidth > bounds.right) curLeft = bounds.right - preWidth;
+      if (curLeft < bounds.left) curLeft = bounds.left; else if (curLeft + preWidth > bounds.right) curLeft = bounds.right - preWidth;
       if (onDrag) {
         var ret = onDrag({
           lastLeft: preLeft,
@@ -1594,7 +1594,7 @@ var RowDnd = /*#__PURE__*/React__default['default'].forwardRef(function (_ref, r
 });
 
 function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
+  if (ref === void 0) ref = {};
   var insertAt = ref.insertAt;
 
   if (!css || typeof document === 'undefined') { return; }
@@ -1689,7 +1689,7 @@ var Cursor = function Cursor(_ref) {
       var scrollLeft = scrollSync.current.state.scrollLeft;
       if (!scroll || scrollLeft === 0) {
         // 拖拽时，如果当前left < left min，将数值设置为 left min
-        if (left < startLeft - scrollLeft) draggingLeft.current = startLeft - scrollLeft;else draggingLeft.current = left;
+        if (left < startLeft - scrollLeft) draggingLeft.current = startLeft - scrollLeft; else draggingLeft.current = left;
       } else {
         // 自动滚动时，如果当前left < left min，将数值设置为 left min
         if (draggingLeft.current < startLeft - scrollLeft - scroll) {
@@ -1807,23 +1807,23 @@ var EditAction = function EditAction(_ref) {
     scaleWidth: scaleWidth
   });
   var rightLimit = Math.min(maxScaleCount * scaleWidth + startLeft,
-  // 根据maxScaleCount限制移动范围
-  parserTimeToPixel(maxEnd || Number.MAX_VALUE, {
-    startLeft: startLeft,
-    scale: scale,
-    scaleWidth: scaleWidth
-  }));
+    // 根据maxScaleCount限制移动范围
+    parserTimeToPixel(maxEnd || Number.MAX_VALUE, {
+      startLeft: startLeft,
+      scale: scale,
+      scaleWidth: scaleWidth
+    }));
   // 初始化动作坐标数据
   var _useState = React.useState(function () {
-      return parserTimeToTransform({
-        start: start,
-        end: end
-      }, {
-        startLeft: startLeft,
-        scale: scale,
-        scaleWidth: scaleWidth
-      });
-    }),
+    return parserTimeToTransform({
+      start: start,
+      end: end
+    }, {
+      startLeft: startLeft,
+      scale: scale,
+      scaleWidth: scaleWidth
+    });
+  }),
     _useState2 = _slicedToArray(_useState, 2),
     transform = _useState2[0],
     setTransform = _useState2[1];
@@ -1867,13 +1867,13 @@ var EditAction = function EditAction(_ref) {
     isDragWhenClick.current = true;
     if (onActionMoving) {
       var _parserTransformToTim = parserTransformToTime({
-          left: left,
-          width: width
-        }, {
-          scaleWidth: scaleWidth,
-          scale: scale,
-          startLeft: startLeft
-        }),
+        left: left,
+        width: width
+      }, {
+        scaleWidth: scaleWidth,
+        scale: scale,
+        startLeft: startLeft
+      }),
         _start = _parserTransformToTim.start,
         _end = _parserTransformToTim.end;
       var result = onActionMoving({
@@ -1895,13 +1895,13 @@ var EditAction = function EditAction(_ref) {
       width = _ref3.width;
     // 计算时间
     var _parserTransformToTim2 = parserTransformToTime({
-        left: left,
-        width: width
-      }, {
-        scaleWidth: scaleWidth,
-        scale: scale,
-        startLeft: startLeft
-      }),
+      left: left,
+      width: width
+    }, {
+      scaleWidth: scaleWidth,
+      scale: scale,
+      startLeft: startLeft
+    }),
       start = _parserTransformToTim2.start,
       end = _parserTransformToTim2.end;
     // 设置数据
@@ -1935,13 +1935,13 @@ var EditAction = function EditAction(_ref) {
     isDragWhenClick.current = true;
     if (onActionResizing) {
       var _parserTransformToTim3 = parserTransformToTime({
-          left: left,
-          width: width
-        }, {
-          scaleWidth: scaleWidth,
-          scale: scale,
-          startLeft: startLeft
-        }),
+        left: left,
+        width: width
+      }, {
+        scaleWidth: scaleWidth,
+        scale: scale,
+        startLeft: startLeft
+      }),
         _start2 = _parserTransformToTim3.start,
         _end2 = _parserTransformToTim3.end;
       var result = onActionResizing({
@@ -1964,13 +1964,13 @@ var EditAction = function EditAction(_ref) {
       width = _ref5.width;
     // 计算时间
     var _parserTransformToTim4 = parserTransformToTime({
-        left: left,
-        width: width
-      }, {
-        scaleWidth: scaleWidth,
-        scale: scale,
-        startLeft: startLeft
-      }),
+      left: left,
+      width: width
+    }, {
+      scaleWidth: scaleWidth,
+      scale: scale,
+      startLeft: startLeft
+    }),
       start = _parserTransformToTim4.start,
       end = _parserTransformToTim4.end;
     // 设置数据
@@ -2159,10 +2159,10 @@ var EditRow = function EditRow(props) {
 
 function useDragLine() {
   var _useState = React.useState({
-      isMoving: false,
-      movePositions: [],
-      assistPositions: []
-    }),
+    isMoving: false,
+    movePositions: [],
+    assistPositions: []
+  }),
     _useState2 = _slicedToArray(_useState, 2),
     dragLineData = _useState2[0],
     setDragLineData = _useState2[1];
@@ -2212,13 +2212,13 @@ function useDragLine() {
       scaleWidth = data.scaleWidth,
       startLeft = data.startLeft;
     var _parserTimeToTransfor = parserTimeToTransform({
-        start: start,
-        end: end
-      }, {
-        startLeft: startLeft,
-        scaleWidth: scaleWidth,
-        scale: scale
-      }),
+      start: start,
+      end: end
+    }, {
+      startLeft: startLeft,
+      scaleWidth: scaleWidth,
+      scale: scale
+    }),
       left = _parserTimeToTransfor.left,
       width = _parserTimeToTransfor.width;
     if (!dir) return [left, left + width];
@@ -2442,7 +2442,7 @@ var EditArea = /*#__PURE__*/React__default['default'].forwardRef(function (props
   }, dragLineData)));
 });
 
-var css_248z$5 = ".timeline-editor {\n  height: 600px;\n  width: 600px;\n  min-height: 32px;\n  position: relative;\n  font-size: 12px;\n  font-family: \"PingFang SC\";\n  background-color: #191b1d;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n";
+var css_248z$5 = ".timeline-editor {\n  height: 600px;\n  min-height: 32px;\n  position: relative;\n  font-size: 12px;\n  font-family: \"PingFang SC\";\n  background-color: #191b1d;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n";
 styleInject(css_248z$5);
 
 var css_248z$6 = ".timeline-editor-time-area {\n  position: relative;\n  height: 32px;\n  flex: 0 0 auto;\n}\n.timeline-editor-time-area .ReactVirtualized__Grid {\n  outline: none;\n}\n.timeline-editor-time-area .ReactVirtualized__Grid::-webkit-scrollbar {\n  display: none;\n}\n.timeline-editor-time-area-interact {\n  position: absolute;\n  cursor: pointer;\n  left: 0;\n  top: 0;\n}\n.timeline-editor-time-unit {\n  border-right: 1px solid rgba(255, 255, 255, 0.2);\n  position: relative;\n  box-sizing: content-box;\n  height: 4px !important;\n  bottom: 0 !important;\n  top: auto !important;\n}\n.timeline-editor-time-unit-big {\n  height: 8px !important;\n}\n.timeline-editor-time-unit-scale {\n  color: rgba(255, 255, 255, 0.6);\n  position: absolute;\n  right: 0;\n  top: 0;\n  transform: translate(50%, -100%);\n}\n";
