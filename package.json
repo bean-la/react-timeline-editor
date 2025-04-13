@@ -41,7 +41,7 @@
     "@types/react-virtualized": "^9.22.0",
     "framework-utils": "^1.1.0",
     "interactjs": "^1.10.11",
-    "react-virtualized": "^9.22.0"
+    "react-virtualized": "workspace:*"
   },
   "devDependencies": {
     "@types/howler": "^2.2.4",
