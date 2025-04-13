@@ -1,5 +1,5 @@
 import { parserPixelToTime } from '../../utils/deal_data';
-import React, { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { AutoSizer, Grid, GridCellRenderer, OnScrollParams } from 'react-virtualized';
 import { CommonProp } from '../../interface/common_prop';
 import { prefix } from '../../utils/deal_class_prefix';
@@ -16,7 +16,7 @@ export type TimeAreaProps = CommonProp & {
 };
 
 /** 动画时间轴组件 */
-export const TimeArea: FC<TimeAreaProps> = ({ setCursor, maxScaleCount, hideCursor, scale, scaleWidth, scaleCount, scaleSplitCount, startLeft, scrollLeft, onClickTimeArea, getScaleRender }) => {
+export const TimeArea: FC<TimeAreaProps> = ({ setCursor, maxScaleCount = 100, hideCursor, scale = 1, scaleWidth = 1, scaleCount, scaleSplitCount = 0, startLeft = 20, scrollLeft, onClickTimeArea, getScaleRender }) => {
   const gridRef = useRef<Grid>();
   /** 是否显示细分刻度 */
   const showUnit = scaleSplitCount > 0;
@@ -55,7 +55,7 @@ export const TimeArea: FC<TimeAreaProps> = ({ setCursor, maxScaleCount, hideCurs
           return (
             <>
               <Grid
-                ref={gridRef}
+                ref={gridRef as any}
                 columnCount={showUnit ? scaleCount * scaleSplitCount + 1 : scaleCount}
                 columnWidth={getColumnWidth}
                 estimatedColumnSize={estColumnWidth}
